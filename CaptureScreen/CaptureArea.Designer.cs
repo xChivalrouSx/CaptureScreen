@@ -43,6 +43,7 @@
             this.Opacity = 0.25D;
             this.Text = "CaptureArea";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CaptureArea_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CaptureScreen_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CaptureScreen_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CaptureScreen_MouseUp);
