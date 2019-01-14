@@ -86,14 +86,21 @@ namespace CaptureScreen.Classes
             activeForm.WindowState = FormWindowState.Minimized;
             activeForm.Visible = false;
 
-            using (Bitmap bitmap = new Bitmap(rect.Width, rect.Height))
+            try
             {
-                using (Graphics g = Graphics.FromImage(bitmap))
+                using (Bitmap bitmap = new Bitmap(rect.Width, rect.Height))
                 {
-                    g.CopyFromScreen(rect.Left, rect.Top, 0, 0, rect.Size, CopyPixelOperation.SourceCopy);
-                }
+                    using (Graphics g = Graphics.FromImage(bitmap))
+                    {
+                        g.CopyFromScreen(rect.Left, rect.Top, 0, 0, rect.Size, CopyPixelOperation.SourceCopy);
+                    }
 
-                SaveCapturedScreen(bitmap);
+                    SaveCapturedScreen(bitmap);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             activeForm.Visible = true;

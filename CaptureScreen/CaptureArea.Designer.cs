@@ -1,4 +1,7 @@
-﻿namespace CaptureScreen
+﻿using System.Drawing;
+using System.IO;
+
+namespace CaptureScreen
 {
     partial class CaptureArea
     {
@@ -28,6 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CaptureArea));
             this.SuspendLayout();
             // 
             // CaptureArea
@@ -35,6 +39,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
+            this.BackgroundImage = new Bitmap(Directory.GetCurrentDirectory() + "/../../Images/CaptureArea.PNG");
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(884, 525);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
